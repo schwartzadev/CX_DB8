@@ -8,7 +8,14 @@ import re
 import seaborn as sns
 import operator
 import math
+import logging
 from sklearn.metrics.pairwise import cosine_similarity
+
+# create logger
+logging.basicConfig(format='%(asctime)s %(message)s',)
+log = logging.getLogger()
+log.setLevel(logging.INFO)
+
 module_url = "https://tfhub.dev/google/universal-sentence-encoder-large/3" #@param ["https://tfhub.dev/google/universal-sentence-encoder/2", "https://tfhub.dev/google/universal-sentence-encoder-large/3"]
 
 embed = hub.Module(module_url)
