@@ -41,7 +41,7 @@ card_words_org = card.split()
 ngram_list = []
 for i in range(0, len(card_words_org)):
     new_word = card_words_org[i-10:i+10] #make it so that each word takes it's prior words as context as well
-    print(new_word)
+    log.debug(new_word)
     new_string = ''
     for word in new_word:
         new_string += word
@@ -91,12 +91,14 @@ with tf.Session() as session:
             removed_str += str(sum_word[0])
             removed_str += " "
     # print(
-    print("CARD: ")
-    print(card)
-    print("GENERATED SUMMARY: ")
-    print(sum_str)
-    print("tokens removed:" + " " + str(token_removed_ct))
-    print("NOT UNDERLINED")
-    print(removed_str)
+    log.info("CARD: ")
+    log.info(card)
+    log.info("GENERATED SUMMARY: ")
+    log.info(sum_str)
+    log.info("tokens removed:" + " " + str(token_removed_ct))
+    log.info("NOT UNDERLINED")
+    log.info(removed_str)
+
+    log.info('complete!')
 
 
